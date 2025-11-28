@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &171230028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171230029}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &171230029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171230028}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.7199129, w: 0.6940645}
+  m_LocalPosition: {x: 1.7099915, y: -0.7799988, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 475332894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.095}
 --- !u!1 &472121788
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +264,9 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 475332892}
   joystick: {fileID: 684556406}
+  firePoint: {fileID: 171230029}
+  bulletPrefab: {fileID: 8103916658652627555, guid: b1290b6778e0e1843b334e7ef9650b29, type: 3}
+  fireRate: 0.5
 --- !u!70 &475332891
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -364,7 +398,8 @@ Transform:
   m_LocalPosition: {x: 467, y: 178, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 171230029}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
