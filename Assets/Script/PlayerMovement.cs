@@ -6,6 +6,12 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;            // Xác nhân vật
     public Joystick joystick;         // Cần điều khiển
 
+    [Header("Shooting Settings")]
+    public Transform firePoint;     // Vị trí nòng súng
+    public GameObject bulletPrefab; // Prefab viên đạn
+    public float fireRate = 0.5f;   // Tốc độ bắn (giây)
+    private float nextFire = 0f;
+
     Vector2 moveInput;
 
     void Update()
@@ -23,6 +29,20 @@ public class PlayerMovement : MonoBehaviour
 
         // Chuẩn hóa để đi chéo không bị nhanh hơn
         moveInput = moveInput.normalized;
+
+        // Logic bắn súng (Chuột trái hoặc phím Ctrl trái - Mặc định của Unity là "Fire1")
+        // Hoặc bạn có thể map nút bắn trên màn hình cảm ứng sau
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        // Tạo viên đạn tại vị trí firePoint, với góc quay của Player
+        Instantiate(bulletPrefab, firePoint.position,firePoint.rotation);
     }
 
     void FixedUpdate()
